@@ -22,6 +22,9 @@ export default {
       countDate: new Date("Jan 1, 2021 00:00:00").getTime()
     };
   },
+  created() {
+    this.newYear();
+  },
   mounted() {
       setInterval(()=>{
           this.newYear();
@@ -32,7 +35,7 @@ export default {
       let now = new Date().getTime();
       let gap = this.countDate - now;
       let second = 1000;
-      let minute = second * 50;
+      let minute = second * 60;
       let hour = minute * 60;
       let day = hour * 24;
 

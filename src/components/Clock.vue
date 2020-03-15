@@ -23,20 +23,20 @@ export default {
       secTransform: null
     };
   },
-  created(){
+  created() {
     this.nowTime();
   },
   mounted() {
     setInterval(() => {
       this.nowTime();
-    }, 1000);
+    }, 50);
   },
   methods: {
     nowTime() {
       let day = new Date();
       let hh = day.getHours() * 30;
       let mm = day.getMinutes() * this.deg;
-      let ss = day.getSeconds() * this.deg;
+      let ss = day.getSeconds() * this.deg + day.getMilliseconds() * this.deg / 1000;
       this.hourTransform = `rotateZ(${hh + mm / 12}deg)`;
       this.minTransform = `rotateZ(${mm + ss / 60}deg)`;
       this.secTransform = `rotateZ(${ss}deg)`;
